@@ -4,6 +4,7 @@ use App\Livewire\DetailComponent;
 use App\Livewire\HomeComponent;
 use App\Livewire\PropertyComponent;
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::view('/', 'welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/', HomeComponent::class)->name('home.index');
 
@@ -23,13 +26,3 @@ Route::get('/property', PropertyComponent::class)->name('property');
 Route::get('/detail', DetailComponent::class)->name('detail');
 
 //https://www.youtube.com/watch?v=pqeM9QA7I9I&list=PLz_YkiqIHesvxr_f-P-MitN0wnkfXCdd1&index=1
-
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
-
-Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
-
-require __DIR__.'/auth.php';
